@@ -1,0 +1,15 @@
+.nav{
+    background-color: purple;
+    color: green;
+    font-weight: bold;
+    margin-top: 0em;
+}
+.example-fill-remaining-space{
+    flex: 1 1 auto;
+}
+
+.nav-btn{
+    margin-right: 0.5em;
+    background-color:green;
+    color:white;
+}
