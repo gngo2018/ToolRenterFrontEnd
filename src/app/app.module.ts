@@ -5,7 +5,8 @@ import {
   MatToolbarModule, 
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -45,6 +46,7 @@ import { RequestService } from './services/request.service';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MatTableModule,
     MatToolbarModule,
     MatButtonModule,
     MatGridListModule,
