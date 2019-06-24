@@ -13,16 +13,15 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser){
-    return this._http.post(`${environment.Api_Url}api/Account/Register`, regUserData);
+    return this._http.post(`${environment.Api_Url}api/Auth/Register`, regUserData);
       this._router.navigate(['/login'])
   }
 
   login(loginInfo){
     const str = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
-    return this._http.post(`${environment.Api_Url}Token`, str).subscribe((token: Token) => {
+    return this._http.post(`${environment.Api_Url}api/Auth/login`, str).subscribe((token: Token) => {
       localStorage.setItem('id_token', token.access_token);
       this._router.navigate(['/'])
     });
   }
-
 }
