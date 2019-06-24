@@ -1,3 +1,31 @@
-<p>
-  equipment-type works!
-</p>
+<h1>Equipment Type Index</h1>
+<a mat-raised-button color="primary" routerLink="/equipment-type/create">Create New Equipment Type</a>
+<hr />
+<div>
+  <mat-table #table [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let equipmentType" class="matColumnSize">
+        <i class="material-icons" routerLink="/equipment-type/detail/{{equipmentType.equipmentTypeEntityId}}">library_books</i>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="EquipmentTypeEntityId">
+      <mat-header-cell *matHeaderCellDef> Equipment Type Id </mat-header-cell>
+      <mat-cell *matCellDef="let equipmentType"> {{equipmentType.equipmentTypeEntityId}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="EquipmentTypeString">
+      <mat-header-cell *matHeaderCellDef> Equipment Type Name </mat-header-cell>
+      <mat-cell *matCellDef="let equipmentType"> {{equipmentType.equipmentTypeString}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let equipmentType">
+        <i mat-icon class="material-icons orange" color="warn"
+          routerLink="/equipment-type/update/{{equipmentType.equipmentTypeEntityId}}">edit</i>
+        <i mat-icon class="material-icons red" routerLink="/equipment-type/delete/{{equipmentType.equipmentTypeEntityId}}">delete</i>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>
